@@ -47,19 +47,18 @@ public class Anagram {
 		}
 		if (ans2.length() != ans1.length()) {
 			return false;
-	}
-	for (int m = 0; m < ans1.length(); m++) {
-        char currentChar = ans1.charAt(m);
-		int index = ans2.indexOf(currentChar); // finding the matching char at str2
-		if (index == -1) {
-			return false;
-		} else {
-			ans2 = ans2.substring(0, index) + ans2.substring(index + 1);
 		}
+		for (int m = 0; m < ans1.length(); m++) {
+			char currentChar = ans1.charAt(m);
+			int index = ans2.indexOf(currentChar); // finding the matching char at str2
+			if (index == -1) {
+				return false;
+			} else {
+				ans2 = ans2.substring(0, index) + ans2.substring(index + 1);
+			}
+		}
+		return true;
 	}
-	return true;
-
-}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
@@ -81,15 +80,16 @@ public class Anagram {
 			int ascii = (int) ch;
 			if (ch == ' ') {
 				ans += ch;
-			} else if (ch >= 'A' && ch <= 'Z' ){
+			} else if (ch >= 'A' && ch <= 'Z' ) {
 				ans += (char) (ch + 32); // lower case	
 			} else if (ascii >= 33 && ascii <= 47 || ascii == 58 || ascii == 64 || ascii == 96) {
 				i++;
 			} else {
 				ans += ch; // keep lowercase the same
 			}
-			i++;
-		}	return ans; 	
+			i++; 
+		}
+		return ans;		
 	}
 		
 	   
